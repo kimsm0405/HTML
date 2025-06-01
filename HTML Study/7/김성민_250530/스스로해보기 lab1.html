@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String 객체 split 메소드 활용</title>
+</head>
+<body>
+<h3>String 객체 split 메소드 활용</h3>
+<hr>
+<script>
+    const csvData = "이름,나이,도시\n김철수,25,부산\n박선영,32,대구";
+    document.write("<p><b>csvData</b> ");
+    document.write(csvData + "</p>");
+    const rows = csvData.split('\n');
+    document.write("<p><b>rows 내용</b><br>");
+    for(i = 0; i < rows.length; i++){
+        document.write(rows[i] +"<br>");
+    }
+    document.write("</p>");
+
+    document.write("<p><b>이름  도시</b><br>");
+    for(let i = 1; i < rows.length; i++){ 
+        const columns = rows[i].split(',');
+        document.write(columns[0] + " " + columns[2] + "<br>"); 
+    }
+    document.write("</p>");
+
+</script>
+</body>
+</html>

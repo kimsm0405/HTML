@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 성적 현황</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>학생 성적 현황</h2>
+    <table id="studentTable">
+        <tr>
+            <th>이름</th>
+            <th>점수</th>
+            <th>등급</th>
+        </tr>
+    </table>
+
+    <script>
+        // Student 생성자 함수 정의
+        function Student(name, score) {
+            this.name = name;
+            this.score = score;
+            
+            // 등급 계산 메서드 정의
+            this.getGrade = function() {
+                if (this.score >= 90) return 'A';
+                else if (this.score >= 80) return 'B';
+                else if (this.score >= 70) return 'C';
+                else if (this.score >= 60) return 'D';
+                else return 'F';
+            };
+        }
+
+        // 학생 배열 생성
+        const students = [
+            new Student('김민준', 85),
+            new Student('이지은', 92),
+            new Student('박서준', 78),
+            new Student('최유리', 63),
+            new Student('정하윤', 98)
+        ];
+
+        // 표에 학생 정보 추가
+        const table = document.getElementById("studentTable");
+        students.forEach(student => {
+            let row = table.insertRow();
+            row.insertCell().innerText = student.name;
+            row.insertCell().innerText = student.score;
+            row.insertCell().innerText = student.getGrade();
+        });
+    </script>
+</body>
+</html>

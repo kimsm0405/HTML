@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>학생 성적 정보</title>
+</head>
+<body>
+    <script>
+        // Student 생성자 함수 정의
+        function Student(name, score) {
+            this.name = name;
+            this.score = score;
+            
+            // 등급 계산 메서드 정의
+            this.getGrade = function() {
+                if (this.score >= 90) return 'A';
+                else if (this.score >= 80) return 'B';
+                else if (this.score >= 70) return 'C';
+                else if (this.score >= 60) return 'D';
+                else return 'F';
+            };
+
+            // 학생 정보 출력 메서드
+            this.printStudentInfo = function() {
+                console.log(`이름: ${this.name}, 점수: ${this.score}, 등급: ${this.getGrade()}`);
+            };
+        }
+
+        // 학생 배열 생성
+        const students = [
+            new Student('김민준', 85),
+            new Student('이지은', 92),
+            new Student('박서준', 78),
+            new Student('최유리', 63),
+            new Student('정하윤', 98)
+        ];
+
+        // 콘솔에 학생 정보 출력
+        console.log("--- 학생 성적 정보 ---");
+        students.forEach(student => student.printStudentInfo());
+    </script>
+</body>
+</html>

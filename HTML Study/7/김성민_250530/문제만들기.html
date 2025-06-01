@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>프로토타입 자동차 예제</title>
+</head>
+<body>
+  <h1>프로토타입을 활용한 자동차 객체 예제</h1>
+  <pre id="output"></pre>
+
+  <script>
+    // 출력용 함수
+    function print(text) {
+      const output = document.getElementById("output");
+      output.textContent += text + "\n";
+    }
+
+    // 자동차 생성자 함수
+    function Car(make, model, year) {
+      this.make = make;     // 제조사
+      this.model = model;   // 모델명
+      this.year = year;     // 제작년도
+      this.speed = 0;       // 현재 속도 (km/h)
+    }
+
+    // 프로토타입 메서드
+    Car.prototype.accelerate = function(amount) {
+      this.speed += amount;
+      print(`${this.make} ${this.model} 가속: 현재 속도는 ${this.speed} km/h 입니다.`);
+    };
+
+    Car.prototype.brake = function(amount) {
+      this.speed = Math.max(0, this.speed - amount);
+      print(`${this.make} ${this.model} 감속: 현재 속도는 ${this.speed} km/h 입니다.`);
+    };
+
+    Car.prototype.getAge = function(currentYear) {
+      return currentYear - this.year;
+    };
+
+    Car.prototype.printInfo = function() {
+      print(`자동차 정보: ${this.make} ${this.model} (${this.year}년식), 현재 속도: ${this.speed} km/h`);
+    };
+
+    // 자동차 여러 대 생성
+    let car1 = new Car("Hyundai", "Sonata", 2018);
+    let car2 = new Car("Tesla", "Model 3", 2021);
+    let car3 = new Car("BMW", "X5", 2015);
+
+    // car1 동작
+    car1.printInfo();
+    car1.accelerate(60);
+    car1.brake(30);
+    print(`자동차 나이: ${car1.getAge(2025)}년\n`);
+
+    // car2 동작
+    car2.printInfo();
+    car2.accelerate(100);
+    car2.brake(50);
+    print(`자동차 나이: ${car2.getAge(2025)}년\n`);
+
+    // car3 동작
+    car3.printInfo();
+    car3.accelerate(80);
+    car3.brake(40);
+    print(`자동차 나이: ${car3.getAge(2025)}년\n`);
+  </script>
+</body>
+</html>
