@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉터 만들기</title></head>
+<style>
+	/* 모든 요소(태그)에 적용되는 선택자 */
+	* { color: green; }
+	/* li 요소 글자색 노랑색, strong 요소 글자색 빨강색 */
+	li { /*background-color: aqua;*/ color : yellow; }
+	strong { color : red; }
+	.hot { /*클래스 선택자 표현 방법 .클래스명*/font-size : 20px; }
+	#list { /*아이디 선택자 표현 방법 .아이디명*/ background-color: #2fb3ff; }
+	.title { color: red; background-color: blueviolet; }
+	/* ul 태그 배경색을 블랙*/
+	/* ul { background-color: black; } */
+</style>
+<body>
+	<h1 class="title">Web Programming-1</h1>
+	<h3 class="title">Web Programming-3</h3>
+<hr>
+<div> 
+	<div class="hot">2학기 <strong>학습 내용</strong></div>
+		<ul id="list">
+			<li>HTML5<a href="http://www.w3.org">html 표준 소개 사이트 참조</a></li>
+			<li><strong>CSS</strong></li>
+			<li>JAVASCRIPT</li>
+		</ul>
+	<div class="hot">60점 이하는 F!</div>
+</div>
+<a href="http://www.w3.org">html 표준 소개 사이트 참조</a>
+</body>
+</html>
