@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>과일 그림 클릭 시 설명 출력</title>
+    <script src="fruit.js" defer></script> <!-- fruit.js로 변경 -->
+    <style>
+        .fruit-image {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>과일을 클릭하면 설명이 나타납니다</h3>
+
+    <img src="../media/apple.png" alt="사과 그림" class="fruit-image" onclick="showDescription('apples');">
+    <img src="../media/banana.png" alt="바나나 그림" class="fruit-image" onclick="showDescription('banana');">
+    <img src="../media/orange.png" alt="오렌지 그림" class="fruit-image" onclick="showDescription('orange');">
+    <img src="../media/fig.png" alt="알 수 없는 과일" class="fruit-image" onclick="showDescription('figs');">
+</body>
+</html>

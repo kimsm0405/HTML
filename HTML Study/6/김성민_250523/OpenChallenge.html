@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>별 문자 출력하기</title>
+    <style>
+        pre {
+            font-family: monospace;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h3>별 문자 출력하기</h3>
+    <hr>
+    <pre id="output"></pre>
+
+    <script>
+        // 사용자 입력 받기
+        let num = prompt("정수를 입력하세요.");
+
+        // 결과를 출력할 요소 가져오기
+        let outputElement = document.getElementById("output");
+
+        // 숫자인지 확인 후 별 출력
+        if (num !== null && num !== "" && !isNaN(num) && Number(num) > 0) {
+            num = Number(num);
+            let result = "";
+            for (let i = 1; i <= num; i++) {
+                result += "*".repeat(i) + "\n";
+            }
+            outputElement.textContent = result;
+        } else {
+            outputElement.textContent = "입력 오류 입니다.";
+        }
+    </script>
+</body>
+</html>
